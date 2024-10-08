@@ -12,8 +12,10 @@ class Crypt:
             encrypted_table.append(row)
         
         encrypted_string = ""
-        for row in encrypted_table:
-            encrypted_string += ''.join(row)
+        for j in range(len(encrypted_table[0])): 
+            for i in range(len(encrypted_table)):  
+                if j < len(encrypted_table[i]):  
+                    encrypted_string += encrypted_table[i][j]
 
         return encrypted_string
 
