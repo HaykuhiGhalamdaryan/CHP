@@ -28,15 +28,15 @@ def huffman_codes(text):
     root = heap[0]
     
     huffman_code = {}
-    def generate_codes(node, current_code=""):
+    def encode(node, current_code=""):
         if not node:
             return
         if node.char is not None:  
             huffman_code[node.char] = current_code
-        generate_codes(node.left, current_code + "0")
-        generate_codes(node.right, current_code + "1")
+        encode(node.left, current_code + "0")
+        encode(node.right, current_code + "1")
     
-    generate_codes(root)
+    encode(root)
     return huffman_code, root
 
 def encode_text(text, huffman_code):
